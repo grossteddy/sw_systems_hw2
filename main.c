@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "myBank.h"
 
 int main()
@@ -29,12 +28,12 @@ int main()
             printf("Amount?:");
             amount = number(amount); 
             amount = money(amount);
-            O(amount);
+            Open_Account(amount);
             break;
         case 'B':
             printf("Account number?:\n");
             accountNum = number(accountNum);
-            B((int)accountNum);
+            Balance((int)accountNum);
             break;
         case 'D':
             printf("Account number?:\n");
@@ -43,7 +42,7 @@ int main()
             printf("Amount?:\n");
             amount = number(amount);
             amount = money(amount);
-            D((int)accountNum,amount);
+            Deposit((int)accountNum,amount);
             break;
         case 'W':
             printf("Account number?:\n");
@@ -52,23 +51,23 @@ int main()
             printf("Amount?:\n");
             amount = number(amount);
             amount = money(amount);
-            W((int)accountNum, amount);
+            Withdrawal((int)accountNum, amount);
             break;
         case 'C':
             printf("Account number?:\n");
             accountNum = number(accountNum);         
-            C((int)accountNum);
+            Close_Account((int)accountNum);
             break;
         case 'I':
             printf("Interest rate?:\n");
             amount = number(amount);
-            I((int)amount);
+            Interest((int)amount);
             break;
         case 'P':
-            P();
+            Print();
             break;
         case 'E': 
-            E();
+            Exit();
             break;
         //if the choice input was invalid
         default:

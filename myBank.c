@@ -1,11 +1,10 @@
 #include <stdio.h>
-#include "myBank.h"
 #define set 901
 
 
 static double account[50][2];
 
-void O(double amount)
+void Open_Account(double amount)
 {
     int i =0;
     while(i-50){
@@ -13,7 +12,7 @@ void O(double amount)
         {
             account[i][0] = 1;
             account[i][1] = amount;
-            printf("Account number %d has been opend\n", i+set);
+            printf("Account number %d has been opened\n", i+set);
             break;
         }
         i++;
@@ -23,7 +22,7 @@ void O(double amount)
     if(i == 50){printf("Accounts from 901 - 950 are already open, action cancelled\n");}
 }
 
-void B(int account_number)
+void Balance(int account_number)
 {
     if(account_number > 900 && account_number < 951)
     {
@@ -43,7 +42,7 @@ void B(int account_number)
     }
 }
 
-void D(int account_number, double amount)
+void Deposit(int account_number, double amount)
 {
     if(account_number > 900 && account_number < 951)
     {
@@ -68,7 +67,7 @@ void D(int account_number, double amount)
     }
 }
 
-void W(int account_number, double amount)
+void Withdrawal(int account_number, double amount)
 {
     if(account_number > 900 && account_number < 951)
     {
@@ -105,7 +104,7 @@ void W(int account_number, double amount)
     }
 }
 
-void C(int account_number)
+void Close_Account(int account_number)
 {
     if(account_number > 900 && account_number < 951)
     {
@@ -127,15 +126,19 @@ void C(int account_number)
     }
 }
 
-void I(int intrest_rate)
+void Interest(int intrest_rate)
 {
     if(intrest_rate >= 0)
     {
-        double num = (intrest_rate / 100) +1;
-
-        for(int i = 0; i<50;++i)
+        double num;
+        num = (double)intrest_rate / 100 +1;
+        
+        for(int i = 0; i < 50; ++i)
         {
-            if(account[i][0] == 1) {account[i][1] = account[i][1] * num;}
+            if(account[i][0] == 1) 
+            {
+                account[i][1] = (account[i][1] * num);
+            }
         }
     }
     else
@@ -144,7 +147,7 @@ void I(int intrest_rate)
     }
 }
 
-void P()
+void Print()
 {
     for(int i = 0; i<50;++i)
         {
@@ -152,7 +155,7 @@ void P()
         }
 }
 
-void E()
+void Exit()
 {
     for(int i = 0; i<50;i++)
         {
